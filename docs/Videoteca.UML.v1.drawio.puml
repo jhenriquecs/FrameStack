@@ -1,0 +1,20 @@
+@startuml
+hide methods
+
+class Genero {
+  - id: int
+  - nome: String
+  - listaDeVideos: List<Video>
+}
+
+class Video {
+  - id: int
+  - titulo: String
+  - data: LocalDate
+  - linkSite: String
+  - classificacao: String
+  - listaDeGeneros: List<Genero>
+}
+
+Video "*" -- "*" Genero : associados
+@enduml
