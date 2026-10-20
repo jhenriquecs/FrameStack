@@ -9,7 +9,7 @@ public class Video {
     private String titulo;
     private LocalDate data;
     private String linkSite;
-    private String classificacao;
+    private String classificacao; // Alterar para ranking ou nota
     private List<Genero> listaDeGeneros;
 
     public Video() {
@@ -17,7 +17,7 @@ public class Video {
 
     }
 
-    public Video(int id, String titulo, LocalDate data, String linkSite, String classificacao){
+    public Video(int id, String titulo, LocalDate data, String linkSite, String classificacao){ // Retirar id daqui
         this.id = id;
         this.titulo = titulo;
         this.data = data;
@@ -75,7 +75,7 @@ public class Video {
     }
 
     public void adicionarGenero(Genero genero){
-        if (genero != null && !this.listaDeGeneros.contains(genero)){
+        if (genero != null && !this.listaDeGeneros.contains(genero)){ // Retirar validação
             this.listaDeGeneros.add(genero);
             genero.adicionarVideo(this);
         }

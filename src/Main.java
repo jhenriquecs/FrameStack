@@ -97,5 +97,7 @@ public class Main {
             System.out.println("Falha: O sistema adicionou o gênero duplicado.");
         }
         System.out.println(v3);
+        System.out.println();
+        System.out.println("---- Fim do Programa ----");
     }
 }

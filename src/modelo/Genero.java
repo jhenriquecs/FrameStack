@@ -29,7 +29,7 @@ public class Genero {
      * @param id   Identificador único do gênero
      * @param nome Nome do gênero (ex: Ação, Comédia, Drama)
      */
-    public Genero(int id, String nome) {
+    public Genero(int id, String nome) { // Retirar id daqui
         this.id = id;
         this.nome = nome;
         this.listaDeVideos = new ArrayList<>();
@@ -73,7 +73,7 @@ public class Genero {
      * @param video Vídeo a ser adicionado
      */
     public void adicionarVideo(Video video) {
-        if (video != null && !this.listaDeVideos.contains(video)) {
+        if (video != null && !this.listaDeVideos.contains(video)) { // Retirar validação
             this.listaDeVideos.add(video);
         }
     }
