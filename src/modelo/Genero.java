@@ -25,12 +25,11 @@ public class Genero {
 
     /**
      * Construtor com parâmetros.
+     * O id é gerado automaticamente pelo GeradorID ao gravar no banco.
      *
-     * @param id   Identificador único do gênero
      * @param nome Nome do gênero (ex: Ação, Comédia, Drama)
      */
-    public Genero(int id, String nome) { // Retirar id daqui
-        this.id = id;
+    public Genero(String nome) {
         this.nome = nome;
         this.listaDeVideos = new ArrayList<>();
     }
@@ -41,10 +40,6 @@ public class Genero {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -73,9 +68,7 @@ public class Genero {
      * @param video Vídeo a ser adicionado
      */
     public void adicionarVideo(Video video) {
-        if (video != null && !this.listaDeVideos.contains(video)) { // Retirar validação
-            this.listaDeVideos.add(video);
-        }
+        this.listaDeVideos.add(video);
     }
 
     /**

@@ -1,37 +1,30 @@
 package modelo;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Video {
     private int id;
     private String titulo;
-    private LocalDate data;
+    private String data; // dd/MM/yyyy
     private String linkSite;
-    private String classificacao; // Alterar para ranking ou nota
+    private double nota; // nota de 0 a 10
     private List<Genero> listaDeGeneros;
 
     public Video() {
         this.listaDeGeneros = new ArrayList<>();
-
     }
 
-    public Video(int id, String titulo, LocalDate data, String linkSite, String classificacao){ // Retirar id daqui
-        this.id = id;
+    public Video(String titulo, String data, String linkSite, double nota){
         this.titulo = titulo;
         this.data = data;
         this.linkSite = linkSite;
-        this.classificacao = classificacao;
+        this.nota = nota;
         this.listaDeGeneros = new ArrayList<>();
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTitulo() {
@@ -42,11 +35,11 @@ public class Video {
         this.titulo = titulo;
     }
 
-    public LocalDate getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(LocalDate data) {
+    public void setData(String data) {
         this.data = data;
     }
 
@@ -58,12 +51,12 @@ public class Video {
         this.linkSite = linkSite;
     }
 
-    public String getClassificacao() {
-        return classificacao;
+    public double getNota() {
+        return nota;
     }
 
-    public void setClassificacao(String classificacao) {
-        this.classificacao = classificacao;
+    public void setNota(double nota) {
+        this.nota = nota;
     }
 
     public List<Genero> getListaDeGeneros() {
@@ -75,10 +68,8 @@ public class Video {
     }
 
     public void adicionarGenero(Genero genero){
-        if (genero != null && !this.listaDeGeneros.contains(genero)){ // Retirar validação
-            this.listaDeGeneros.add(genero);
-            genero.adicionarVideo(this);
-        }
+        this.listaDeGeneros.add(genero);
+        genero.adicionarVideo(this);
     }
 
     public boolean removerGenero(Genero genero){
@@ -104,7 +95,7 @@ public class Video {
                 ",titulo='" + titulo + '\'' +
                 ",data=" + data +
                 ",linkSite='" + linkSite + '\'' +
-                ",classificacao='" + classificacao + '\'' +
+                ",nota=" + nota +
                 ",listaDeGeneros=" + nomes +
                 '}';
     }
