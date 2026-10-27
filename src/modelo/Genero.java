@@ -78,7 +78,26 @@ public class Genero {
      * @return true se o vídeo foi removido, false caso contrário
      */
     public boolean removerVideo(Video video) {
-        return this.listaDeVideos.remove(video);
+        if (this.listaDeVideos.remove(video)) {
+            video.getListaDeGeneros().remove(this);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Localiza um vídeo na lista deste gênero pelo título.
+     *
+     * @param titulo Título do vídeo
+     * @return Video encontrado ou null
+     */
+    public Video localizarVideo(String titulo) {
+        for (Video v : listaDeVideos) {
+            if (v.getTitulo().equalsIgnoreCase(titulo)) {
+                return v;
+            }
+        }
+        return null;
     }
 
     /**
@@ -92,10 +111,15 @@ public class Genero {
 
     @Override
     public String toString() {
+        List<String> titulos = new ArrayList<>();
+        for (Video v : listaDeVideos) {
+            titulos.add(v.getTitulo());
+        }
         return "Genero{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", totalDeVideos=" + listaDeVideos.size() +
+                ", videos=" + titulos +
                 '}';
     }
 }

@@ -80,6 +80,15 @@ public class Video {
         return false;
     }
 
+    public Genero localizarGenero(String nome) {
+        for (Genero g : listaDeGeneros) {
+            if (g.getNome().equalsIgnoreCase(nome)) {
+                return g;
+            }
+        }
+        return null;
+    }
+
     public int totalDeGeneros(){
         return this.listaDeGeneros.size();
     }
@@ -92,11 +101,11 @@ public class Video {
         }
         return "Video{" +
                 "id=" + id +
-                ",titulo='" + titulo + '\'' +
-                ",data=" + data +
-                ",linkSite='" + linkSite + '\'' +
-                ",nota=" + nota +
-                ",listaDeGeneros=" + nomes +
+                ", titulo='" + titulo + '\'' +
+                ", data='" + data + '\'' +
+                ", linkSite='" + linkSite + '\'' +
+                ", nota=" + nota +
+                ", listaDeGeneros=" + nomes +
                 '}';
     }
 }

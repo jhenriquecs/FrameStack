@@ -16,6 +16,17 @@ public class Cadastrar {
 		Util.conectar();
 		ObjectContainer manager = Util.getManager(); // gerenciador da persistencia de objetos
 
+		// Verificar se o banco já contém dados para evitar duplicidade
+		if (!manager.query(Video.class).isEmpty()) {
+			System.out.println("Aviso: O banco de dados já possui objetos cadastrados!");
+			System.out.println("Para reiniciar os cadastros, apague os arquivos 'framestack.db4o' e 'sequencia.db4o'.");
+			Util.desconectar();
+			System.out.println("fim do programa");
+			return;
+		}
+
+		System.out.println("Cadastrando gêneros e vídeos no banco de dados...");
+
 		// Criando generos
 		// *************************************************
 		Genero acao = new Genero("Ação");
@@ -55,7 +66,7 @@ public class Cadastrar {
 		manager.commit();
 
 		Util.desconectar();
-		System.out.println("cadastrou.");
+		System.out.println("Objetos e relacionamentos cadastrados com sucesso!");
 		System.out.println("fim do programa");
 	}
 
