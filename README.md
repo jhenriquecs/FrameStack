@@ -41,13 +41,14 @@ pooProject/
         ├── Cadastrar.java     # 1. Cadastra objetos no banco com seus relacionamentos
         ├── Listar.java        # 2. Lista todos os objetos e seus relacionamentos
         ├── Alterar.java       # 3. Remove relacionamento existente entre dois objetos
-        ├── Apagar.java        # 4. Apaga um objeto que possui relacionamento(s)
-        └── Visualizar.java    # Bônus: visualizador gráfico em árvore do banco Db4o
+        └── Apagar.java        # 4. Apaga um objeto que possui relacionamento(s)
 ```
 
 ---
 
 ## 🚀 Como Executar
+
+> Os comandos abaixo usam `;` como separador de classpath (Windows). No Linux/macOS, troque `;` por `:` (ex.: `-cp "lib/db4o-all-8.0.249.jar:bin"`).
 
 ### 1. Compilação
 Abra o terminal na pasta raiz do projeto e execute:
@@ -80,9 +81,4 @@ java @add_opens.txt -cp "lib/db4o-all-8.0.249.jar;bin" appconsole.Alterar
 Desfaz os vínculos com os gêneros e apaga o filme 'Forrest Gump' de forma segura sem cascata:
 ```powershell
 java @add_opens.txt -cp "lib/db4o-all-8.0.249.jar;bin" appconsole.Apagar
-```
-
-#### **Passo 5: Visualizador Gráfico (Opcional)**
-```powershell
-java @add_opens.txt -cp "lib/db4o-all-8.0.249.jar;bin" appconsole.Visualizar
 ```

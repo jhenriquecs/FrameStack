@@ -68,9 +68,6 @@ public class Apagar {
 			manager.store(g);        // persiste a lista atualizada do gênero no banco
 		}
 
-		// Limpar a lista do próprio vídeo
-		forrest.getListaDeGeneros().clear();
-
 		// Apagar o objeto Vídeo do banco de dados
 		System.out.println("Apagando o vídeo '" + forrest.getTitulo() + "' do banco...");
 		manager.delete(forrest);
