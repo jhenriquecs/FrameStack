@@ -10,9 +10,9 @@ class Genero {
 class Video {
   - id: int
   - titulo: String
-  - data: LocalDate
+  - data: String
   - linkSite: String
-  - classificacao: String
+  - nota: double
   - listaDeGeneros: List<Genero>
 }
 

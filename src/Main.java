@@ -1,6 +1,5 @@
 import modelo.Genero;
 import modelo.Video;
-import java.time.LocalDate;
 
 public class Main {
 
@@ -10,9 +9,9 @@ public class Main {
 
         // 1. Criando os Gêneros
         System.out.println("--- Criando Gêneros ---");
-        Genero acao = new Genero(1, "Ação");
-        Genero ficcao = new Genero(2, "Ficção Científica");
-        Genero comedia = new Genero(3, "Comédia");
+        Genero acao = new Genero("Ação");
+        Genero ficcao = new Genero("Ficção Científica");
+        Genero comedia = new Genero("Comédia");
 
         System.out.println(acao);
         System.out.println(ficcao);
@@ -21,9 +20,9 @@ public class Main {
 
         // 2. Criando os Vídeos
         System.out.println("--- Criando Vídeos ---");
-        Video v1 = new Video(101, "Matrix", LocalDate.of(1999, 3, 31), "www.matrix.com", "14 Anos");
-        Video v2 = new Video(102, "De Volta para o Futuro", LocalDate.of(1985, 7, 3), "www.bttf.com", "Livre");
-        Video v3 = new Video(103, "O Exterminador do Futuro 2", LocalDate.of(1991, 7, 3), "www.t2.com", "16 Anos");
+        Video v1 = new Video("Matrix", "31/03/1999", "www.matrix.com", 8.7);
+        Video v2 = new Video("De Volta para o Futuro", "03/07/1985", "www.bttf.com", 8.5);
+        Video v3 = new Video("O Exterminador do Futuro 2", "03/07/1991", "www.t2.com", 8.6);
 
         System.out.println(v1);
         System.out.println(v2);
@@ -82,21 +81,6 @@ public class Main {
         for(Video v : ficcao.getListaDeVideos()){
             System.out.println("  - " + v.getTitulo());
         }
-        System.out.println();
-
-        // 6. Testando Duplicação (Não deve deixar adicionar o mesmo gênero duas vezes)
-        System.out.println("--- Testando Adição Duplicada ---");
-        System.out.println("Tentando adicionar 'Ação' novamente ao filme 'T2'...");
-        int totalAntes = v3.totalDeGeneros();
-        v3.adicionarGenero(acao);
-        int totalDepois = v3.totalDeGeneros();
-
-        if(totalAntes == totalDepois) {
-            System.out.println("Sucesso: O sistema ignorou a duplicação.");
-        } else {
-            System.out.println("Falha: O sistema adicionou o gênero duplicado.");
-        }
-        System.out.println(v3);
         System.out.println();
         System.out.println("---- Fim do Programa ----");
     }
