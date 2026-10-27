@@ -23,3 +23,6 @@ out/
 build/
 target/
 bin/
+
+# Banco db4o (gerado pelo Cadastrar)
+*.db4o
