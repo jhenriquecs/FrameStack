@@ -24,7 +24,6 @@ pooProject/
 ├── add_opens.txt              # Argumentos de JVM para execução no Java 9+
 ├── README.md
 ├── docs/
-│   ├── ROTEIRO_APRESENTACAO.md # Roteiro de falas e guia para a apresentação
 │   ├── Videoteca.UML.v1.drawio.pdf
 │   ├── Videoteca.UML.v1.drawio.puml
 │   └── img/
@@ -87,9 +86,3 @@ java @add_opens.txt -cp "lib/db4o-all-8.0.249.jar;bin" appconsole.Apagar
 ```powershell
 java @add_opens.txt -cp "lib/db4o-all-8.0.249.jar;bin" appconsole.Visualizar
 ```
-
----
-
-## 🎤 Roteiro de Apresentação
-O roteiro completo com divisão de falas, explicações técnicas e respostas para as perguntas do professor está disponível em:
-👉 **[docs/ROTEIRO_APRESENTACAO.md](docs/ROTEIRO_APRESENTACAO.md)**
