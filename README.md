@@ -12,7 +12,9 @@ O sistema gerencia uma videoteca com catálogo de filmes e gêneros, implementan
 
 - **Video**: `id: int`, `titulo: String`, `data: String` (dd/MM/yyyy), `linkSite: String`, `nota: double`, `listaDeGeneros: List<Genero>`
 - **Genero**: `id: int`, `nome: String`, `listaDeVideos: List<Video>`
+- **Short** (subclasse de `Video`): `tag: String` — herda todos os atributos e o relacionamento com `Genero`
 - **Associação**: `Video "*" -- "*" Genero` (associação bidirecional)
+- **Herança**: `Short` estende `Video` (`Video <|-- Short`)
 
 ---
 
@@ -33,7 +35,8 @@ pooProject/
     ├── Main.java              # Teste das classes de negócio em memória
     ├── modelo/                # Pacote de negócio
     │   ├── Genero.java
-    │   └── Video.java
+    │   ├── Video.java
+    │   └── Short.java         # Subclasse de Video (atributo tag)
     ├── util/                  # Utilitários de persistência fornecidos na aula
     │   ├── GeradorID.java     # Geração automática de chaves primárias sequenciais
     │   └── Util.java          # Conexão e configuração do banco (framestack.db4o)

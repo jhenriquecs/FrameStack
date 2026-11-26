@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 import com.db4o.ObjectContainer;
 
 import modelo.Genero;
+import modelo.Short;
 import modelo.Video;
 import util.Util;
 
@@ -19,6 +20,7 @@ public class Listar {
 		Util.conectar();
 		ObjectContainer manager = Util.getManager();
 
+		// a consulta por Video.class retorna videos e shorts (polimorfismo)
 		System.out.println("------------ VIDEOS ------------");
 		List<Video> resultados1 = manager.query(Video.class);
 		if (resultados1.isEmpty()) {
@@ -26,6 +28,17 @@ public class Listar {
 		} else {
 			for (Video v : resultados1) {
 				System.out.println(v);
+			}
+		}
+
+		// a consulta por Short.class retorna somente os objetos da subclasse
+		System.out.println("\n------------ SHORTS ------------");
+		List<Short> resultados3 = manager.query(Short.class);
+		if (resultados3.isEmpty()) {
+			System.out.println("Nenhum short cadastrado no banco.");
+		} else {
+			for (Short s : resultados3) {
+				System.out.println(s);
 			}
 		}
 

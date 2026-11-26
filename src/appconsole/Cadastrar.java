@@ -7,6 +7,7 @@ package appconsole;
 import com.db4o.ObjectContainer;
 
 import modelo.Genero;
+import modelo.Short;
 import modelo.Video;
 import util.Util;
 
@@ -41,6 +42,11 @@ public class Cadastrar {
 		Video t2 = new Video("O Exterminador do Futuro 2", "03/07/1991", "www.t2.com", 8.6);
 		Video forrest = new Video("Forrest Gump", "06/07/1994", "www.forrestgump.com", 8.8);
 
+		// Criando shorts (subclasse de Video)
+		// *************************************************
+		Short bulletTime = new Short("Matrix - Cena do Bullet Time", "15/04/2024", "www.matrix.com/shorts/bullet-time", 9.0, "#bastidores");
+		Short delorean = new Short("DeLorean a 88 milhas", "21/10/2015", "www.bttf.com/shorts/delorean", 8.9, "#curiosidades");
+
 		// relacionando videos e generos (associacao bidirecional)
 		// *************************************************
 		matrix.adicionarGenero(acao);
@@ -51,6 +57,10 @@ public class Cadastrar {
 		t2.adicionarGenero(ficcao);
 		forrest.adicionarGenero(drama);
 		forrest.adicionarGenero(comedia);
+		bulletTime.adicionarGenero(acao);
+		bulletTime.adicionarGenero(ficcao);
+		delorean.adicionarGenero(ficcao);
+		delorean.adicionarGenero(comedia);
 
 		// *************************************************
 		// Persistir objetos no banco de dados
@@ -63,6 +73,10 @@ public class Cadastrar {
 		manager.store(t2);
 		manager.commit();
 		manager.store(forrest);
+		manager.commit();
+		manager.store(bulletTime);
+		manager.commit();
+		manager.store(delorean);
 		manager.commit();
 
 		Util.desconectar();

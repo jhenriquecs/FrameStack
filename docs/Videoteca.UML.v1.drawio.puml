@@ -16,5 +16,10 @@ class Video {
   - listaDeGeneros: List<Genero>
 }
 
+class Short {
+  - tag: String
+}
+
 Video "*" -- "*" Genero : associados
+Video <|-- Short
 @enduml

@@ -1,4 +1,5 @@
 import modelo.Genero;
+import modelo.Short;
 import modelo.Video;
 
 public class Main {
@@ -81,6 +82,17 @@ public class Main {
         for(Video v : ficcao.getListaDeVideos()){
             System.out.println("  - " + v.getTitulo());
         }
+        System.out.println();
+        // 6. Testando a subclasse Short (herança)
+        System.out.println("--- Testando a Subclasse Short ---");
+        Short s1 = new Short("Matrix - Cena do Bullet Time", "15/04/2024", "www.matrix.com/shorts/bullet-time", 9.0, "#bastidores");
+        s1.adicionarGenero(acao);
+        s1.adicionarGenero(ficcao);
+        System.out.println(s1);
+
+        Video comoVideo = s1; // um Short é um Video
+        System.out.println("Short tratado como Video: " + comoVideo.getTitulo() + " (tag " + s1.getTag() + ")");
+        System.out.println("Gênero Ação agora tem " + acao.totalDeVideos() + " vídeos (inclui o Short)");
         System.out.println();
         System.out.println("---- Fim do Programa ----");
     }

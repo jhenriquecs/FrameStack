@@ -7,6 +7,7 @@ import com.db4o.ObjectContainer;
 import com.db4o.config.EmbeddedConfiguration;
 
 import modelo.Genero;
+import modelo.Short;
 import modelo.Video;
 
 public class Util {
@@ -44,6 +45,9 @@ public class Util {
 		config.common().objectClass(Video.class).cascadeOnDelete(false);
 		config.common().objectClass(Video.class).cascadeOnUpdate(true);
 		config.common().objectClass(Video.class).cascadeOnActivate(true);
+		config.common().objectClass(Short.class).cascadeOnDelete(false);
+		config.common().objectClass(Short.class).cascadeOnUpdate(true);
+		config.common().objectClass(Short.class).cascadeOnActivate(true);
 		config.common().activationDepth(Integer.MAX_VALUE); // profundidade de ativacao para acessar os objetos
 
 		// conexao local
